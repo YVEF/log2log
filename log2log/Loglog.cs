@@ -9,29 +9,32 @@ namespace log2log
 {
     public class Loglog : ILoglog
     {
+
+
         public void Error(string message)
         {
-            throw new NotImplementedException();
+            Console.WriteLine(message);
         }
 
         public void Fatal(string message)
         {
-            throw new NotImplementedException();
+            Console.WriteLine(message);
         }
 
         public void Info(string message)
         {
-            throw new NotImplementedException();
+            Console.WriteLine(message);
         }
 
         public void Warning(string message)
         {
-            throw new NotImplementedException();
+            Console.WriteLine(message);
         }
 
 
 
         #region IDisposable Support
+
         private bool disposedValue = false;
 
         protected virtual void Dispose(bool disposing)
@@ -50,19 +53,16 @@ namespace log2log
             }
         }
 
-        // TODO: override a finalizer only if Dispose(bool disposing) above has code to free unmanaged resources.
-        // ~Loglog() {
-        //   // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
-        //   Dispose(false);
-        // }
-
-        // This code added to correctly implement the disposable pattern.
+        ~Loglog()
+        {
+            Dispose(false);
+        }
         public void Dispose()
         {
             // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
             Dispose(true);
             // TODO: uncomment the following line if the finalizer is overridden above.
-            // GC.SuppressFinalize(this);
+            GC.SuppressFinalize(this);
         }
         #endregion
 
