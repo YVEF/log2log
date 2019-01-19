@@ -1,4 +1,6 @@
-﻿using System;
+﻿using log2log.Configuration;
+using log2log.LogBuilding;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +10,7 @@ namespace log2log
 {
     public static class LogManager
     {
+
         /// <summary>
         /// This is static class for instance creating
         /// </summary>
@@ -15,8 +18,7 @@ namespace log2log
         /// <returns>New instance logger is ILoglog type</returns>
         public static ILoglog GetCurrentLogInstance()
         {
-
-            return new Loglog();
+            return 
         }
     }
 }

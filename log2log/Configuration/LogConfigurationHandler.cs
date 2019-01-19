@@ -8,14 +8,13 @@ using System.Diagnostics;
 
 namespace log2log.Configuration
 {
-    public class LogConfigurationHandler
+    public static class LogConfigurationHandler
     {
-        public void Init()
+        public static LogElement GetLogConfig(int index)
         {
             LogConfigSection logConfig = (LogConfigSection)ConfigurationManager.GetSection("log2log");
-            Debug.Write(logConfig.SettingsItems[0].Name);
-            Debug.Write(logConfig.SettingsItems[0].Path);
 
+            return logConfig.SettingsItems[index];
         }
         
 

@@ -47,13 +47,17 @@
     <Compile Include="Configuration\LogConfigurationHandler.cs" />
     <Compile Include="Configuration\LogElement.cs" />
     <Compile Include="Configuration\LogConfigSection.cs" />
+    <Compile Include="Services\LoggingExecute.cs" />
     <Compile Include="ILoglog.cs" />
+    <Compile Include="LogBuilding\ILogFactory.cs" />
+    <Compile Include="LogBuilding\LogFactory.cs" />
+    <Compile Include="Core\LogData.cs" />
     <Compile Include="Loglog.cs" />
     <Compile Include="LogManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ILogData.cs" />
+    <Compile Include="Services\ILoggingExecute.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="LogBuilding\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
