@@ -18,7 +18,8 @@ namespace log2log
         /// <returns>New instance logger is ILoglog type</returns>
         public static ILoglog GetCurrentLogInstance()
         {
-            return 
+            ILogFactory logFactory = new LogFactory();
+            return logFactory.CreateLoger();
         }
     }
 }

@@ -12,6 +12,11 @@ namespace log2log.Services
         private static object lockObj = new object();
         private Queue<ILogData> loggerQueue = new Queue<ILogData>();
 
+        public LoggingExecute(string path)
+        {
+            this.path = path;
+        }
+
         public void AddLog(ILogData data)
         {
             loggerQueue.Enqueue(data);

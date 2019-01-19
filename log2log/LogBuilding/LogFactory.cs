@@ -18,8 +18,7 @@ namespace log2log.LogBuilding
 
         public ILoglog CreateLoger()
         {
-            var logInstance = new Loglog(Name, Path, Level);
-            return logInstance;
+            return new Loglog(Name, Path, Level);
         }
 
         private LogElement GetConfiguration() => LogConfigurationHandler.GetLogConfig(0);

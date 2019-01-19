@@ -5,27 +5,27 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using log2log.Services;
+using log2log.Core;
 
 namespace log2log
 {
     internal class Loglog : ILoglog
     {
-        private readonly string name;
-        private readonly string level;
-        private readonly string path;
+        private readonly string nameOfLogger;
+        private ILogData logData = new LogData();
         private ILoggingExecute loggingExecute;
 
         internal Loglog(string name, string level, string path)
         {
-            this.name = name;
-            this.level = level;
-            this.path = path;
-            loggingExecute = new
+            nameOfLogger = name;
+            logData.Level = level;
+            loggingExecute = new LoggingExecute(path);
         }
 
         public void Info(string message)
         {
-            
+            logData.Message = message;
+            loggingExecute.AddLog(logData);
         }
 
         
