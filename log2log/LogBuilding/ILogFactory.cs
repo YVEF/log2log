@@ -11,13 +11,13 @@ namespace log2log.LogBuilding
         /// <summary>
         /// This name declare in .config
         /// </summary>
-        string Name { get; }
+        string FileName { get; }
         /// <summary>
         /// This path declare in .config
         /// </summary>
         string Path { get; }
         /// <summary>
-        /// This level declare in .config
+        /// Level of log status
         /// </summary>
         string Level { get; }
         /// <summary>
@@ -25,5 +25,6 @@ namespace log2log.LogBuilding
         /// </summary>
         /// <returns>New logger</returns>
         ILoglog CreateLoger();
+        
     }
 }

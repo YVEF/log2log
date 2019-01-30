@@ -15,7 +15,7 @@ namespace log2log
         private ILogData logData = new LogData();
         private ILoggingExecute loggingExecute;
 
-        internal Loglog(string name, string level, string path)
+        public Loglog(string name, string level, string path)
         {
             nameOfLogger = name;
             logData.Level = level;

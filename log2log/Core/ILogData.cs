@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace log2log.Services
+namespace log2log.Core
 {
-    interface ILogData
+    public interface ILogData
     {
         DateTime dateTime { get; }
-        string Level { get; set; }
-        string Message { get; set; }
+        string Level { get; }
+        string Message { get; }
     }
 }
