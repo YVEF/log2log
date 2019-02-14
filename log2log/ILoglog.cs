@@ -4,15 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using log2log.Services;
 
 namespace log2log
 {
     public interface ILoglog : IDisposable
     {
         /// <summary>
-        /// Connect to log writer
+        /// Create a concrete type of logger
         /// </summary>
-        void Execute();
+        /// <returns></returns>
+        ILoggingExecute CreateLogger();
 
     }
 }

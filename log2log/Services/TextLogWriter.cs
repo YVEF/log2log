@@ -13,18 +13,15 @@ namespace log2log.Services
     {
         private static object lockObj = new object();
         private string path;
-        private Queue<ILogData> loggerQueue;
+        public Queue<ILogData> loggerQueue { get; set; }
 
         /// <summary>
         /// LogFactory incapsulate path of file and logic of loger creating
         /// </summary>
         /// <param name="logFactory"></param>
         /// <param name="loggerQueue"></param>
-        public TextLogWriter(ILogFactory logFactory, Queue<ILogData> loggerQueue)
-        {
-            this.logFactory = logFactory;
-            this.loggerQueue = loggerQueue;
-        }
+        public TextLogWriter(string path) => this.path = path;
+
 
         /// <summary>
         /// Write to .log file
@@ -37,7 +34,7 @@ namespace log2log.Services
                 {
                     foreach (var item in loggerQueue)
                     {
-                        stream.Write(item.dateTime);
+                        stream.Write(item.DateTime);
                         stream.Write(item.Level);
                         stream.Write(item.Message);
                     }
@@ -51,5 +48,6 @@ namespace log2log.Services
             }
             
         }
+
     }
 }

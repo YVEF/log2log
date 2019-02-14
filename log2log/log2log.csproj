@@ -43,11 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\LogConfig.cs" />
     <Compile Include="Configuration\LogConfigurationCollection.cs" />
     <Compile Include="Configuration\LogConfigurationHandler.cs" />
     <Compile Include="Configuration\LogElement.cs" />
     <Compile Include="Configuration\LogConfigSection.cs" />
     <Compile Include="Core\ILogData.cs" />
+    <Compile Include="ILoggerClient.cs" />
+    <Compile Include="LoggerClient.cs" />
     <Compile Include="Services\ILogWriter.cs" />
     <Compile Include="Services\LoggingExecute.cs" />
     <Compile Include="ILoglog.cs" />

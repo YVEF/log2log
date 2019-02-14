@@ -6,34 +6,28 @@ using System.Threading.Tasks;
 using System.IO;
 using log2log.Services;
 using log2log.Core;
+using log2log.Configuration;
 
 namespace log2log
 {
-    internal class Loglog : ILoglog
+    public class Loglog : ILoglog
     {
-        private string message;
-        private ILogData logData = new LogData();
-        private ILoggingExecute loggingExecute;
-        private ILogWriter logWriter;
         private string path;
 
-        public Loglog(string message, string level, string path)
+        public Loglog(string path)
         {
-            logData.Message = message;
-            logData.Level = level;
             this.path = path;
-            loggingExecute = new LoggingExecute(logWriter);
         }
 
-        public void Execute()
+        public ILoggingExecute CreateLogger()
         {
-            loggingExecute.AddDataToLog(logData);
+            return new LoggingExecute(LogConfig.GetLogWriter(path));
         }
 
         public void Dispose()
         {
-            logData = null;
-            loggingExecute = null;
+            //logData = null;
+            //loggingExecute = null;
         }
 
         

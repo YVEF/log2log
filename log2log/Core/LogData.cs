@@ -9,7 +9,13 @@ namespace log2log.Core
 {
     public struct LogData : ILogData
     {
-        public DateTime dateTime => DateTime.Now;
+        public LogData(string level, string message)
+        {
+            Level = level;
+            Message = message;
+        }
+
+        public DateTime DateTime => DateTime.Now;
         public string Level { get; set; }
         public string Message { get; set; }
     }

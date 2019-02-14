@@ -13,10 +13,15 @@ namespace log2log.Tests
         [TestMethod]
         public void TestMethod1()
         {
-            var logFactory = new LogFactory("test", "loggersTest\text.log", "info");
+            var logExecuter = new LogFactory(new Loglog("~/log/lll.log")).CreateLogWriter();
 
-            
-            Assert.IsTrue(result);
+            ILoggerClient logger = logExecuter.GetLoggerClient();
+            var result1 = logger.Info("sdfsfdf");
+            var result2 = logger.Warning("sdbhfh");
+
+            Assert.IsTrue(result1);
+            Assert.IsTrue(result2);
+
         }
     }
 }

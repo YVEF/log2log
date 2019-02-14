@@ -5,8 +5,9 @@ using System.Collections.Generic;
 
 namespace log2log.Services
 {
-    internal interface ILoggingExecute
+    public interface ILoggingExecute
     {
         void AddDataToLog(ILogData data);
+        ILoggerClient GetLoggerClient();
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using log2log.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,5 +13,9 @@ namespace log2log.Services
         /// Write to file or xml or database
         /// </summary>
         bool Write();
+        /// <summary>
+        /// Link on data queue
+        /// </summary>
+        Queue<ILogData> loggerQueue { get; set; }
     }
 }

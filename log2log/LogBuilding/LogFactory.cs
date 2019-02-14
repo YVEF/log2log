@@ -1,4 +1,5 @@
 ﻿using log2log.Configuration;
+using log2log.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,23 +10,16 @@ namespace log2log.LogBuilding
 {
     public class LogFactory : ILogFactory
     {
+        public ILoglog loglog { get; set; }
 
-        public string Message { get; set; } /* => GetConfiguration().Name;*/
-
-        public string Path { get; set; } /* => GetConfiguration().Path;*/
-
-        public string Level { get; set; } /* => GetConfiguration().Level;*/
-
-        public LogFactory(string message, string path, string level)
+        public LogFactory(ILoglog loglog)
         {
-            Message = message;
-            Path = path;
-            Level = level;
+            this.loglog = loglog;
         }
 
-        public ILoglog CreateLoger()
+        public ILoggingExecute CreateLogWriter()
         {
-            return new Loglog(Message, Level, Path);
+            return loglog.CreateLogger();
         }
 
         private LogElement GetConfiguration() => LogConfigurationHandler.GetLogConfig(0);
