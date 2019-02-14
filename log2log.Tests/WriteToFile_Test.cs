@@ -15,11 +15,7 @@ namespace log2log.Tests
         {
             var logFactory = new LogFactory("test", "loggersTest\text.log", "info");
 
-            var loggerQueue = new Queue<ILogData>();
-            for (int i = 0; i < 200; i++)
-                loggerQueue.Enqueue(new LogData() { Level = "info", Message = "good job" });
-            var test = new TextLogWriter(logFactory, loggerQueue);
-            var result = test.Write();
+            
             Assert.IsTrue(result);
         }
     }

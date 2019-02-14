@@ -11,76 +11,31 @@ namespace log2log
 {
     internal class Loglog : ILoglog
     {
-        private readonly string nameOfLogger;
+        private string message;
         private ILogData logData = new LogData();
         private ILoggingExecute loggingExecute;
+        private ILogWriter logWriter;
+        private string path;
 
-        public Loglog(string name, string level, string path)
-        {
-            nameOfLogger = name;
-            logData.Level = level;
-            loggingExecute = new LoggingExecute(path);
-        }
-
-        public void Info(string message)
+        public Loglog(string message, string level, string path)
         {
             logData.Message = message;
-            loggingExecute.AddLog(logData);
+            logData.Level = level;
+            this.path = path;
+            loggingExecute = new LoggingExecute(logWriter);
         }
 
-        
-
-        public void Error(string message)
+        public void Execute()
         {
-            Console.WriteLine(message);
+            loggingExecute.AddDataToLog(logData);
         }
 
-        public void Fatal(string message)
-        {
-            Console.WriteLine(message);
-        }
-
-        
-
-        public void Warning(string message)
-        {
-            Console.WriteLine(message);
-        }
-
-
-
-        #region IDisposable Support
-
-        private bool disposedValue = false;
-
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!disposedValue)
-            {
-                if (disposing)
-                {
-                    // TODO: dispose managed state (managed objects).
-                }
-
-                // TODO: free unmanaged resources (unmanaged objects) and override a finalizer below.
-                // TODO: set large fields to null.
-
-                disposedValue = true;
-            }
-        }
-
-        ~Loglog()
-        {
-            Dispose(false);
-        }
         public void Dispose()
         {
-            // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
-            Dispose(true);
-            // TODO: uncomment the following line if the finalizer is overridden above.
-            GC.SuppressFinalize(this);
+            logData = null;
+            loggingExecute = null;
         }
-        #endregion
 
+        
     }
 }

@@ -8,8 +8,8 @@ namespace log2log.Core
 {
     public interface ILogData
     {
-        DateTime dateTime { get; }
-        string Level { get; }
-        string Message { get; }
+        DateTime dateTime { get; set; }
+        string Level { get; set; }
+        string Message { get; set; }
     }
 }

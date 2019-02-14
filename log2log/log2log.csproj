@@ -48,8 +48,7 @@
     <Compile Include="Configuration\LogElement.cs" />
     <Compile Include="Configuration\LogConfigSection.cs" />
     <Compile Include="Core\ILogData.cs" />
-    <Compile Include="ILogWriter.cs" />
-    <Compile Include="IWrite.cs" />
+    <Compile Include="Services\ILogWriter.cs" />
     <Compile Include="Services\LoggingExecute.cs" />
     <Compile Include="ILoglog.cs" />
     <Compile Include="LogBuilding\ILogFactory.cs" />

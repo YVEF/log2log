@@ -1,9 +1,7 @@
 ﻿using log2log.Core;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.IO;
-
-
+using System.Threading;
 
 namespace log2log.Services
 {
@@ -18,19 +16,15 @@ namespace log2log.Services
             this.logWriter = logWriter;
         }
 
-        public void AddLog(ILogData data)
+        public void AddDataToLog(ILogData data)
         {
             loggerQueue.Enqueue(data);
 
-            if (loggerQueue.Count > 100) WriteToLog();
-        }
-
-        private void WriteToLog()
-        {
-            lock (lockObj)
+            if (loggerQueue.Count > 100)
             {
-                
-            } 
+                logWriter.Write();
+            }
+            
         }
     }
 }

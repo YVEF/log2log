@@ -12,7 +12,7 @@ namespace log2log.Services
     public class TextLogWriter : ILogWriter
     {
         private static object lockObj = new object();
-        private ILogFactory logFactory;
+        private string path;
         private Queue<ILogData> loggerQueue;
 
         /// <summary>
@@ -33,7 +33,7 @@ namespace log2log.Services
         {
             try
             {
-                using (StreamWriter stream = new StreamWriter(logFactory.Path, true, System.Text.Encoding.Default))
+                using (StreamWriter stream = new StreamWriter(path, true, System.Text.Encoding.Default))
                 {
                     foreach (var item in loggerQueue)
                     {
