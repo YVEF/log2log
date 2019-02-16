@@ -12,22 +12,22 @@ namespace log2log.Configuration
         [ConfigurationProperty("name", DefaultValue = "", IsKey = true, IsRequired = true)]
         public string Name
         {
-            get { return (string)base["name"]; }
-            set { base["name"] = value; }
+            get => (string)base["name"]; 
+            set => base["name"] = value;
         }
         
-        [ConfigurationProperty("path", DefaultValue = "", IsKey = false, IsRequired = false)]
+        [ConfigurationProperty("path", DefaultValue = "", IsKey = false, IsRequired = true)]
         public string Path
         {
-            get { return (string)base["path"]; }
-            set { base["path"] = value; }
+            get => (string)base["path"]; 
+            set => base["path"] = value; 
         }
 
-        [ConfigurationProperty("level", DefaultValue = "", IsKey = false, IsRequired = false)]
-        public string Level
+        [ConfigurationProperty("levelFilter", DefaultValue = "", IsKey = false, IsRequired = false)]
+        public bool levelFilter
         {
-            get { return (string)base["level"]; }
-            set { base["level"] = value; }
+            get => (bool)base["levelFilter"];
+            set => base["level"] = value;
         }
     }
 }
