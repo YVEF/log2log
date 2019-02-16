@@ -13,10 +13,17 @@ namespace log2log.Core
         {
             Level = level;
             Message = message;
+            this.LogTime = DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss.fffffff");
         }
 
-        public DateTime DateTime => DateTime.Now;
+        public string LogTime { get; set; }
         public string Level { get; set; }
         public string Message { get; set; }
+
+        public void Dispose()
+        {
+            Level = null;
+            Message = null;
+        }
     }
 }

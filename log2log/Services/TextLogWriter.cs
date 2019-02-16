@@ -2,6 +2,7 @@
 using log2log.LogBuilding;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -20,8 +21,14 @@ namespace log2log.Services
         /// </summary>
         /// <param name="logFactory"></param>
         /// <param name="loggerQueue"></param>
-        public TextLogWriter(string path) => this.path = path;
-
+        public TextLogWriter(string newPath)
+        {
+            if (File.Exists(path)) this.path = newPath;
+            else
+            {
+                this.path = Path.Combine(Path.GetFullPath(AppDomain.CurrentDomain.BaseDirectory + @"\..\..\"), newPath);
+            }
+        }
 
         /// <summary>
         /// Write to .log file
@@ -30,13 +37,14 @@ namespace log2log.Services
         {
             try
             {
-                using (StreamWriter stream = new StreamWriter(path, true, System.Text.Encoding.Default))
+                using (var stream = new StreamWriter(path, true, System.Text.Encoding.Default))
                 {
                     foreach (var item in loggerQueue)
                     {
-                        stream.Write(item.DateTime);
-                        stream.Write(item.Level);
-                        stream.Write(item.Message);
+                        stream.Write(item.LogTime + " | " );
+                        stream.Write(item.Level + " | ");
+                        stream.Write(item.Message + " | ");
+                        stream.WriteLine();
                     }
                     loggerQueue.Clear();
                 }
@@ -44,10 +52,14 @@ namespace log2log.Services
             }
             catch(Exception ex)
             {
+                Debug.Write(ex.Message);
                 return false;
             }
-            
         }
 
+        public void Dispose()
+        {
+            
+        }
     }
 }

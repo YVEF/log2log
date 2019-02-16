@@ -22,14 +22,6 @@ namespace log2log
         public ILoggingExecute CreateLogger()
         {
             return new LoggingExecute(LogConfig.GetLogWriter(path));
-        }
-
-        public void Dispose()
-        {
-            //logData = null;
-            //loggingExecute = null;
-        }
-
-        
+        }        
     }
 }

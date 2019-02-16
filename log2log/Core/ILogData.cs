@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace log2log.Core
 {
-    public interface ILogData
+    public interface ILogData : IDisposable
     {
-        DateTime DateTime { get;}
+        string LogTime { get; set; }
         string Level { get; set; }
         string Message { get; set; }
     }

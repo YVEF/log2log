@@ -21,7 +21,7 @@ namespace log2log
         {
             try
             {
-                loggingProcess.AddDataToLog(new LogData("Warning", message));
+                loggingProcess.AddDataToLog(new LogData("Info", message));
                 return true;
             }
             catch
@@ -47,7 +47,7 @@ namespace log2log
         {
             try
             {
-                loggingProcess.AddDataToLog(new LogData("Warning", message));
+                loggingProcess.AddDataToLog(new LogData("Error", message));
                 return true;
             }
             catch

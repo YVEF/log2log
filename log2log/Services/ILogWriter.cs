@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace log2log.Services
 {
-    public interface ILogWriter
+    public interface ILogWriter : IDisposable
     {
         /// <summary>
         /// Write to file or xml or database

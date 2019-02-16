@@ -8,7 +8,7 @@ using log2log.Services;
 
 namespace log2log
 {
-    public interface ILoglog : IDisposable
+    public interface ILoglog
     {
         /// <summary>
         /// Create a concrete type of logger
