@@ -8,18 +8,25 @@ using System.Threading.Tasks;
 
 namespace log2log
 {
-    //public static class LogManager
-    //{
+    public static class LogManager
+    {
+        private static string path;
+        static LogManager()
+        {
+            var currentLoggerSection = (LogConfigSection)LogConfigHelper.GetConfigFromDomain().GetSection("log2log");
+            path = currentLoggerSection.LogItems[0].Path;
+        }
 
-    //    /// <summary>
-    //    /// This is static class for instance creating
-    //    /// </summary>
-    //    /// <param name="logConnetionName">Log name in Web/Appconfig</param>
-    //    /// <returns>New instance logger is ILoglog type</returns>
-    //    public static ILoglog GetCurrentLogInstance()
-    //    {
-    //        ILogFactory logFactory = new LogFactory();
-    //        return logFactory.CreateLoger();
-    //    }
-    //}
+        /// <summary>
+        /// This is static class for instance creating
+        /// </summary>
+        /// <param name="logConnetionName">Log name in Web/Appconfig</param>
+        /// <returns>New instance logger is ILoglog type</returns>
+        public static ILoggerClient GetCurrentLogInstance()
+        {
+            var logFactory = new LogFactory(new Loglog(path));
+
+            return logFactory.CreateLogWriter().GetLoggerClient();
+        }
+    }
 }

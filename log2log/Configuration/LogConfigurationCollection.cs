@@ -6,11 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-//#pragma 
 
 namespace log2log.Configuration
 {
-    [ConfigurationCollection(typeof(LogElement), AddItemName ="setting")]
+    [ConfigurationCollection(typeof(LogElement))]
     public class LogConfigurationCollection : ConfigurationElementCollection
     {
         public LogConfigurationCollection()
@@ -28,6 +27,6 @@ namespace log2log.Configuration
             return ((LogElement)element).Name;
         }
 
-        public LogElement this[int index] => (LogElement)BaseGet(index);
+        public LogElement this[int index] => BaseGet(index) as LogElement;
     }
 }

@@ -14,7 +14,7 @@ namespace log2log.Configuration
         {
             LogConfigSection logConfig = (LogConfigSection)ConfigurationManager.GetSection("log2log");
 
-            return logConfig.SettingsItems[index];
+            return logConfig.LogItems[index];
         }
         
 

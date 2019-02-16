@@ -23,7 +23,7 @@ namespace log2log.Configuration
             set => base["path"] = value; 
         }
 
-        [ConfigurationProperty("levelFilter", DefaultValue = "", IsKey = false, IsRequired = false)]
+        [ConfigurationProperty("levelFilter", DefaultValue = false, IsKey = false, IsRequired = false)]
         public bool levelFilter
         {
             get => (bool)base["levelFilter"];

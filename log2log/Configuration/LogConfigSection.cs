@@ -9,7 +9,7 @@ namespace log2log.Configuration
 {
     public class LogConfigSection : ConfigurationSection
     {
-        [ConfigurationProperty("settings") ]
-        public LogConfigurationCollection SettingsItems => (LogConfigurationCollection)base["settings"];
+        [ConfigurationProperty("folders")]
+        public LogConfigurationCollection LogItems => (LogConfigurationCollection)base["folders"];
     }
 }

@@ -1,1 +1,1 @@
-Log2log is simple logger for .Net Framework 4.6.2
+Log2log is a logger for >= .Net Framework 4.5
