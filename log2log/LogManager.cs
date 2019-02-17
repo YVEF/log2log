@@ -2,6 +2,7 @@
 using log2log.LogBuilding;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,11 @@ namespace log2log
         static LogManager()
         {
             var currentLoggerSection = (LogConfigSection)LogConfigHelper.GetConfigFromDomain().GetSection("log2log");
-            path = currentLoggerSection.LogItems[0].Path;
+            var tempPath1 = currentLoggerSection.LogItems[0].Path;
+            var tempPath2 = Path.GetFullPath(AppDomain.CurrentDomain.BaseDirectory + @"\..\..\");
+            var tempPath3 = Path.GetDirectoryName(tempPath2 + tempPath1);
+            if(!Directory.Exists(tempPath3)) Directory.CreateDirectory(tempPath3);
+            path = Path.GetFullPath(tempPath2 + tempPath1);
         }
 
         /// <summary>

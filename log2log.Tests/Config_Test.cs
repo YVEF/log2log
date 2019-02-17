@@ -29,12 +29,12 @@ namespace log2log.Tests
         {
             ILoggerClient logger = LogManager.GetCurrentLogInstance();
             int i = 0;
-            while(i<20000000)
+            while(i<200000)
             {
                 logger.Info("abrakadabra");
                 i++;
             }
-            //System.Threading.Thread.Sleep(7000);
+            System.Threading.Thread.Sleep(7000);
             var result = File.Exists(@"C:\Users\Eric\source\repos\log2log\log2log.Tests\LogFile.txt");
             Assert.IsTrue(result);
             

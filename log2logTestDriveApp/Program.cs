@@ -13,7 +13,8 @@ namespace log2logTestDriveApp
         static void Main(string[] args)
         {
             ILoggerClient logger = LogManager.GetCurrentLogInstance();
-            logger.Info("abrakadabra");
+            for(int i=0; i<100; i++)
+                logger.Info("abrakadabra");
 
             Console.Read();
         }

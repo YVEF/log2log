@@ -9,23 +9,13 @@ using System.Threading.Tasks;
 
 namespace log2log.Configuration
 {
-    [ConfigurationCollection(typeof(LogElement))]
+    [ConfigurationCollection(typeof(LogElement), AddItemName ="setting")]
     public class LogConfigurationCollection : ConfigurationElementCollection
     {
-        public LogConfigurationCollection()
-        {
-            Console.WriteLine("Start a LogConfigurationCollection .ctor");
-        }
 
-        protected override ConfigurationElement CreateNewElement()
-        {
-            return new LogElement();
-        }
+        protected override ConfigurationElement CreateNewElement() => new LogElement();
 
-        protected override object GetElementKey(ConfigurationElement element)
-        {
-            return ((LogElement)element).Name;
-        }
+        protected override object GetElementKey(ConfigurationElement element) => ((LogElement)element).Name;
 
         public LogElement this[int index] => BaseGet(index) as LogElement;
     }
