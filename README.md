@@ -3,8 +3,9 @@
 <div>
 <p>
 Please, add this settings in your App/Web.config:
+    </p>
 
-<code>
+<?xml version="1.0">
 <configSections>
     <section name="log2log" type="log2log.Configuration.LogConfigSection, log2log "/>
 </configSections>
@@ -14,8 +15,6 @@ Please, add this settings in your App/Web.config:
       <setting name="log2log" path="Log\LogFile.txt" levelFilter="false"/>
     </settings>
 </log2log>
-<code>
-<p>
 </div>
 
 <p>
