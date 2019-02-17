@@ -1,7 +1,10 @@
-Log2log is a logger for >= .Net Framework 4.5
+<h3>Log2log is a logger for >= .Net Framework 4.5</h3>
 
-Please, add this settings in your App/Web.config
+<div>
+<p>
+Please, add this settings in your App/Web.config:
 
+<code>
 <configSections>
     <section name="log2log" type="log2log.Configuration.LogConfigSection, log2log "/>
 </configSections>
@@ -11,6 +14,9 @@ Please, add this settings in your App/Web.config
       <setting name="log2log" path="Log\LogFile.txt" levelFilter="false"/>
     </settings>
 </log2log>
+<code>
+<p>
+</div>
 
 <p>
 <em>
