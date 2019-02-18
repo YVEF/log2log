@@ -1,11 +1,15 @@
-<h3>Log2log is a logger for >= .Net Framework 4.5</h3>
+
+<body>
+
+<h3>Log2log is a logger for .Net Framework </h3>
 
 <div>
 <p>
 Please, add this settings in your App/Web.config:
     </p>
+</div>
 
-<?xml version="1.0">
+'''javascript
 <configSections>
     <section name="log2log" type="log2log.Configuration.LogConfigSection, log2log "/>
 </configSections>
@@ -15,7 +19,7 @@ Please, add this settings in your App/Web.config:
       <setting name="log2log" path="Log\LogFile.txt" levelFilter="false"/>
     </settings>
 </log2log>
-</div>
+'''
 
 <p>
 <em>
@@ -24,3 +28,4 @@ Please, add this settings in your App/Web.config:
 <strong>LevelFilter</strong> is enables or disables filtering by level. (Now is not available)
 </em>
 </p>
+</body>
