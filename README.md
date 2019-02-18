@@ -31,4 +31,12 @@ Please, add this settings in your App/Web.config:
 <strong>LevelFilter</strong> is enables or disables filtering by level. (Now is not available)
 </em>
 </p>
+
+<p>
+```csharp
+ILoggerClient logger = LogManager.GetCurrentLogInstance();
+logger.Info("Log info");
+```
+</p>
 </body>
+
