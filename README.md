@@ -32,11 +32,14 @@ Please, add this settings in your App/Web.config:
 </em>
 </p>
 
-<p>
+
 ```csharp
+using log2log;
+
+// Create a logger instance
 ILoggerClient logger = LogManager.GetCurrentLogInstance();
 logger.Info("Log info");
 ```
-</p>
+
 </body>
 
