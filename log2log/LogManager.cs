@@ -12,6 +12,7 @@ namespace log2log
     public static class LogManager
     {
         private static string path;
+
         static LogManager()
         {
             var currentLoggerSection = (LogConfigSection)LogConfigHelper.GetConfigFromDomain().GetSection("log2log");
@@ -23,10 +24,9 @@ namespace log2log
         }
 
         /// <summary>
-        /// This is static class for instance creating
+        /// The method creates a logger client for the calling project. App/Web.config file must be correct.
         /// </summary>
-        /// <param name="logConnetionName">Log name in Web/Appconfig</param>
-        /// <returns>New instance logger is ILoglog type</returns>
+        /// <returns></returns>
         public static ILoggerClient GetCurrentLogInstance()
         {
             var logFactory = new LogFactory(new Loglog(path));

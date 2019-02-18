@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>log2log</name>
+    </assembly>
+    <members>
+        <member name="M:log2log.ILoggerClient.Info(System.String)">
+            <summary>
+            Set a message for info level
+            </summary>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:log2log.ILoggerClient.Warning(System.String)">
+            <summary>
+            Set a message for warning level
+            </summary>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:log2log.ILoggerClient.Error(System.String)">
+            <summary>
+            Set a message for error level
+            </summary>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:log2log.Services.ILogWriter.Write">
+            <summary>
+            Write to file or xml or database
+            </summary>
+        </member>
+        <member name="P:log2log.Services.ILogWriter.loggerQueue">
+            <summary>
+            Link on data queue
+            </summary>
+        </member>
+        <member name="M:log2log.Services.TextLogWriter.#ctor(System.String)">
+            <summary>
+            LogFactory incapsulate path of file and logic of loger creating
+            </summary>
+            <param name="logFactory"></param>
+            <param name="loggerQueue"></param>
+        </member>
+        <member name="M:log2log.Services.TextLogWriter.Write">
+            <summary>
+            Write to .log file
+            </summary>
+        </member>
+        <member name="M:log2log.ILoglog.CreateLogger">
+            <summary>
+            Create a concrete type of logger
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:log2log.LogManager.GetCurrentLogInstance">
+            <summary>
+            The method creates a logger client for the calling project. App/Web.config file must be correct.
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
