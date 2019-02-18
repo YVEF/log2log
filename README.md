@@ -23,8 +23,11 @@ Please, add this settings in your App/Web.config:
 
 <p>
 <em>
+<br/>
 <strong>Name</strong> is just a name of logger.
+<br/>
 <strong>Path</strong> is the path of create a .log file with/without subdirectory (By default, the .log is creates in the main directory of project)
+<br/>
 <strong>LevelFilter</strong> is enables or disables filtering by level. (Now is not available)
 </em>
 </p>
