@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace log2log
 {
+    /// <summary>
+    /// This is main logger instance for client
+    /// </summary>
     public interface ILoggerClient
     {
         /// <summary>

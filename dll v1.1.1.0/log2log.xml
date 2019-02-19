@@ -4,6 +4,31 @@
         <name>log2log</name>
     </assembly>
     <members>
+        <member name="T:log2log.Core.ILogData">
+            <summary>
+            It's interface for log data
+            </summary>
+        </member>
+        <member name="P:log2log.Core.ILogData.LogTime">
+            <summary>
+            Time of message
+            </summary>
+        </member>
+        <member name="P:log2log.Core.ILogData.Level">
+            <summary>
+            This is level mark of logger for filter
+            </summary>
+        </member>
+        <member name="P:log2log.Core.ILogData.Message">
+            <summary>
+            Current message from logger client
+            </summary>
+        </member>
+        <member name="T:log2log.ILoggerClient">
+            <summary>
+            This is main logger instance for client
+            </summary>
+        </member>
         <member name="M:log2log.ILoggerClient.Info(System.String)">
             <summary>
             Set a message for info level
@@ -25,6 +50,38 @@
             <param name="message"></param>
             <returns></returns>
         </member>
+        <member name="T:log2log.LoggerClient">
+            <summary>
+            Logger client is implementation of ILoggerClient and use different level for information and filtration.
+            Main type is ILoggerClient but you can use this implementation of interface.
+            </summary>
+        </member>
+        <member name="M:log2log.LoggerClient.Info(System.String)">
+            <summary>
+            Message of indo level
+            </summary>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:log2log.LoggerClient.Warning(System.String)">
+            <summary>
+            Message of warning level
+            </summary>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:log2log.LoggerClient.Error(System.String)">
+            <summary>
+            Message of error level
+            </summary>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="T:log2log.Services.ILogWriter">
+            <summary>
+            This is an interface that any writers can implement
+            </summary>
+        </member>
         <member name="M:log2log.Services.ILogWriter.Write">
             <summary>
             Write to file or xml or database
@@ -34,6 +91,23 @@
             <summary>
             Link on data queue
             </summary>
+        </member>
+        <member name="T:log2log.Services.ILoggingExecute">
+            <summary>
+            Main executer of logger
+            </summary>
+        </member>
+        <member name="M:log2log.Services.ILoggingExecute.AddDataToLog(log2log.Core.ILogData)">
+            <summary>
+            You can add any data that ILogData implement
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="M:log2log.Services.ILoggingExecute.GetLoggerClient">
+            <summary>
+            Return a logger instance for client
+            </summary>
+            <returns></returns>
         </member>
         <member name="M:log2log.Services.TextLogWriter.#ctor(System.String)">
             <summary>
@@ -52,6 +126,11 @@
             Create a concrete type of logger
             </summary>
             <returns></returns>
+        </member>
+        <member name="T:log2log.LogManager">
+            <summary>
+            Logger manager reads .config and implements all logger dependecies
+            </summary>
         </member>
         <member name="M:log2log.LogManager.GetCurrentLogInstance">
             <summary>

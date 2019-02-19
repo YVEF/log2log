@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace log2log.Configuration
 {
     [ConfigurationCollection(typeof(LogElement), AddItemName ="setting")]
-    public class LogConfigurationCollection : ConfigurationElementCollection
+    internal class LogConfigurationCollection : ConfigurationElementCollection
     {
 
         protected override ConfigurationElement CreateNewElement() => new LogElement();

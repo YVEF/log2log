@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace log2log.Core
 {
-    public struct LogData : ILogData
+    internal struct LogData : ILogData
     {
         public LogData(string level, string message)
         {

@@ -7,7 +7,7 @@ using System.Timers;
 
 namespace log2log.Services
 {
-    public class LoggingExecute : ILoggingExecute
+    internal class LoggingExecute : ILoggingExecute
     {
         private Queue<ILogData> loggerQueue;
         public delegate bool LogWriterEventHandler();

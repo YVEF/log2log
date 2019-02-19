@@ -8,7 +8,7 @@ using System.Diagnostics;
 
 namespace log2log.Configuration
 {
-    public static class LogConfigurationHandler
+    internal static class LogConfigurationHandler
     {
         public static LogElement GetLogConfig(int index)
         {

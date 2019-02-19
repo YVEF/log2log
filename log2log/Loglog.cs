@@ -10,7 +10,7 @@ using log2log.Configuration;
 
 namespace log2log
 {
-    public class Loglog : ILoglog
+    internal class Loglog : ILoglog
     {
         private string path;
 

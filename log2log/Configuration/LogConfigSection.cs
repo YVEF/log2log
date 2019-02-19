@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace log2log.Configuration
 {
-    public class LogConfigSection : ConfigurationSection
+    internal class LogConfigSection : ConfigurationSection
     {
         [ConfigurationProperty("settings")]
         public LogConfigurationCollection LogItems => (LogConfigurationCollection)base["settings"];

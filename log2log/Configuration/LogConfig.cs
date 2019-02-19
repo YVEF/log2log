@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace log2log.Configuration
 {
-    public static class LogConfig
+    internal static class LogConfig
     {
         public static ILogWriter GetLogWriter(string connectionPath)
         {

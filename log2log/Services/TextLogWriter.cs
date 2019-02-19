@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace log2log.Services
 {
-    public class TextLogWriter : ILogWriter
+    internal class TextLogWriter : ILogWriter
     {
         private static object lockObj = new object();
         private string path;

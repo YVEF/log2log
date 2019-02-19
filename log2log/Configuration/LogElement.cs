@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace log2log.Configuration
 {
-    public class LogElement : ConfigurationElement
+    internal class LogElement : ConfigurationElement
     {
         [ConfigurationProperty("name", DefaultValue = "", IsKey = true, IsRequired = true)]
         public string Name

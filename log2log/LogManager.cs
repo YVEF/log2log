@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace log2log
 {
+    /// <summary>
+    /// Logger manager reads .config and implements all logger dependecies
+    /// </summary>
     public static class LogManager
     {
         private static string path;

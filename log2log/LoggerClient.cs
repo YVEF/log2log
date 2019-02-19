@@ -8,15 +8,24 @@ using System.Threading.Tasks;
 
 namespace log2log
 {
+    /// <summary>
+    /// Logger client is implementation of ILoggerClient and use different level for information and filtration.
+    /// Main type is ILoggerClient but you can use this implementation of interface.
+    /// </summary>
     public class LoggerClient : ILoggerClient
     {
         private ILoggingExecute loggingProcess;
 
-        public LoggerClient(ILoggingExecute loggingProcess)
+        internal LoggerClient(ILoggingExecute loggingProcess)
         {
             this.loggingProcess = loggingProcess;
         }
 
+        /// <summary>
+        /// Message of indo level
+        /// </summary>
+        /// <param name="message"></param>
+        /// <returns></returns>
         public bool Info(string message)
         {
             try
@@ -30,6 +39,11 @@ namespace log2log
             }
         }
 
+        /// <summary>
+        /// Message of warning level
+        /// </summary>
+        /// <param name="message"></param>
+        /// <returns></returns>
         public bool Warning(string message)
         {
             try
@@ -43,6 +57,11 @@ namespace log2log
             }
         }
 
+        /// <summary>
+        /// Message of error level
+        /// </summary>
+        /// <param name="message"></param>
+        /// <returns></returns>
         public bool Error(string message)
         {
             try

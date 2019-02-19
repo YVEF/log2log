@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace log2log.Configuration
 {
-    public static class LogConfigHelper
+    internal static class LogConfigHelper
     {
         public static System.Configuration.Configuration GetConfigFromDomain()
         {

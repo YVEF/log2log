@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace log2log.LogBuilding
 {
-    public class LogFactory : ILogFactory
+    internal class LogFactory : ILogFactory
     {
         public ILoglog loglog { get; set; }
 

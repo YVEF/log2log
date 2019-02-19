@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace log2log.LogBuilding
 {
-    public interface ILogFactory
+    internal interface ILogFactory
     {
         ILoglog loglog { get; set; }
         ILoggingExecute CreateLogWriter();

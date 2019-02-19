@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace log2logTestDriveApp
@@ -15,6 +16,7 @@ namespace log2logTestDriveApp
             ILoggerClient logger = LogManager.GetCurrentLogInstance();
             for(int i=0; i<100; i++)
                 logger.Info("abrakadabra");
+            Thread.Sleep(TimeSpan.FromSeconds(3));
 
             Console.Read();
         }

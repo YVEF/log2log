@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace log2log.Services
 {
+    /// <summary>
+    /// This is an interface that any writers can implement
+    /// </summary>
     public interface ILogWriter : IDisposable
     {
         /// <summary>
