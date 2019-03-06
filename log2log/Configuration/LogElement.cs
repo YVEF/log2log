@@ -29,5 +29,19 @@ namespace log2log.Configuration
             get => (bool)base["levelFilter"];
             set => base["level"] = value;
         }
+
+        [ConfigurationProperty("toDataBase", DefaultValue = false, IsKey = false, IsRequired = false)]
+        public bool toDataBase
+        {
+            get => (bool)base["toDataBase"];
+            set => base["toDataBase"] = value;
+        }
+
+        [ConfigurationProperty("dbConnectionName", DefaultValue = "", IsKey = false, IsRequired = false)]
+        public string dbConnectionName
+        {
+            get => base["dbConnectionName"] as string;
+            set => base["dbConnectionName"] = value;
+        }
     }
 }

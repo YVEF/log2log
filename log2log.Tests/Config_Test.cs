@@ -11,18 +11,7 @@ namespace log2log.Tests
     [TestClass]
     public class Config_Test
     {
-        [TestMethod]
-        public void Method1()
-        {
-            var conf = log2log.Configuration.LogConfigHelper.GetConfigFromDomain();
-            var d = (log2log.Configuration.LogConfigSection)conf.GetSection("log2log");
-            var d2 = conf.GetSection("log2log").ElementInformation;
-            var d3 = conf.GetSection("log2log").CurrentConfiguration;
-            var d4 = conf.GetSection("log2log").CurrentConfiguration.AppSettings;
-            var d5 = conf.GetSection("log2log").SectionInformation.Name;
-            var t = d.LogItems[0].Path;
-            Assert.IsNotNull(conf);
-        }
+        
 
         [TestMethod]
         public void Method2()

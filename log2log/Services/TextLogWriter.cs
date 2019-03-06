@@ -35,25 +35,28 @@ namespace log2log.Services
         /// </summary>
         public bool Write()
         {
-            try
+            lock(lockObj)
             {
-                using (var stream = new StreamWriter(path, true, System.Text.Encoding.Default))
+                try
                 {
-                    foreach (var item in loggerQueue)
+                    using (var stream = new StreamWriter(path, true, System.Text.Encoding.Default))
                     {
-                        stream.Write(item.LogTime + " | " );
-                        stream.Write(item.Level + " | ");
-                        stream.Write(item.Message + " | ");
-                        stream.WriteLine();
+                        foreach (var item in loggerQueue)
+                        {
+                            stream.Write(item.LogTime + " | " );
+                            stream.Write(item.Level + " | ");
+                            stream.Write(item.Message + " | ");
+                            stream.WriteLine();
+                        }
+                        loggerQueue.Clear();
                     }
-                    loggerQueue.Clear();
+                    return true;
                 }
-                return true;
-            }
-            catch(Exception ex)
-            {
-                Debug.Write(ex.Message);
-                return false;
+                catch(Exception ex)
+                {
+                    Debug.Write(ex.Message);
+                    return false;
+                }
             }
         }
 

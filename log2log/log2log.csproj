@@ -53,6 +53,10 @@
     <Compile Include="Core\ILogData.cs" />
     <Compile Include="ILoggerClient.cs" />
     <Compile Include="LoggerClient.cs" />
+    <Compile Include="Services\DbConfig\DbFactory.cs" />
+    <Compile Include="Services\DbConfig\DbContext.cs" />
+    <Compile Include="Services\DbConfig\IContext.cs" />
+    <Compile Include="Services\DbLogWriter.cs" />
     <Compile Include="Services\ILogWriter.cs" />
     <Compile Include="Services\LoggingExecute.cs" />
     <Compile Include="ILoglog.cs" />
