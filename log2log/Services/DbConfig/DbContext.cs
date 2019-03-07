@@ -15,12 +15,14 @@ namespace log2log.Services.DbConfig
             this.connection = connection;
         }
 
-        public IDbCommand CreateCommand() => connection.CreateCommand();
-
-
-        public void Dispose()
+        public IDbCommand CreateCommand()
         {
-            throw new NotImplementedException();
+            connection.Open();
+            return connection.CreateCommand();
         }
+
+
+        public void Dispose() => connection.Close();
+
     }
 }

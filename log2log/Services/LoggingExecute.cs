@@ -19,11 +19,8 @@ namespace log2log.Services
             loggerQueue = new Queue<ILogData>();
             foreach(var item in logWriters)
             {
-                if(item != null)
-                {
-                    WriteHandler += item.Write;
-                    item.loggerQueue = loggerQueue;
-                }
+                WriteHandler += item.Write;
+                item.loggerQueue = loggerQueue;       
             }
             timer = new Timer(2000);
             timer.Elapsed += ActiveTimerElapsed;

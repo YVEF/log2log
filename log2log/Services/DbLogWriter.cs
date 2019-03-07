@@ -19,6 +19,7 @@ namespace log2log.Services
         public DbLogWriter(IContext context)
         {
             this.context = context;
+            
             using (var command = context.CreateCommand())
             {                
                 command.CommandText = "CREATE TABLE [Loglog] ( [Id] INT PRIMARY KEY IDENTITY NOT NULL, " +

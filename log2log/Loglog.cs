@@ -18,7 +18,6 @@ namespace log2log
 
         public Loglog(string path) : this(path, null) { }
 
-
         public Loglog(string path, ConnectionStringSettings conStrSettings)
         {
             this.path = path;
@@ -27,7 +26,7 @@ namespace log2log
 
         public ILoggingExecute CreateLogger()
         {
-            return new LoggingExecute(LogConfig.GetLogWriter(path));
+            return new LoggingExecute(LogConfig.GetLogWriter(path, conStrSettings));
         }        
     }
 }

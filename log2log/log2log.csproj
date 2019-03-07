@@ -51,6 +51,7 @@
     <Compile Include="Configuration\LogElement.cs" />
     <Compile Include="Configuration\LogConfigSection.cs" />
     <Compile Include="Core\ILogData.cs" />
+    <Compile Include="Extension\SingleInstanceFactory.cs" />
     <Compile Include="ILoggerClient.cs" />
     <Compile Include="LoggerClient.cs" />
     <Compile Include="Services\DbConfig\DbFactory.cs" />

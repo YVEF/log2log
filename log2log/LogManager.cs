@@ -1,4 +1,5 @@
 ﻿using log2log.Configuration;
+using log2log.Extension;
 using log2log.LogBuilding;
 using System;
 using System.Collections.Generic;
@@ -15,8 +16,9 @@ namespace log2log
     /// </summary>
     public static class LogManager
     {
-        private static string path;
+        private static readonly string path;
         private static ConnectionStringSettings connectionSettings;
+        [SingleInstanceFactory]
         private static LogFactory logFactory;
 
         static LogManager()
@@ -40,11 +42,8 @@ namespace log2log
         /// </summary>
         /// <returns></returns>
         public static ILoggerClient GetCurrentLogInstance()
-        {
-            
-            if (connectionSettings != null) logFactory = new LogFactory(new Loglog(path, connectionSettings));
-            else logFactory = new LogFactory(new Loglog(path));
-
+        {         
+            logFactory = new LogFactory(new Loglog(path, connectionSettings));
             return logFactory.CreateLogWriter().GetLoggerClient();
         }
     }

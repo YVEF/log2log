@@ -9,6 +9,10 @@ namespace log2log.Services.DbConfig
 {
     interface IContext : IDisposable
     {
+        /// <summary>
+        /// The method create a command for add ILogData in db
+        /// </summary>
+        /// <returns></returns>
         IDbCommand CreateCommand();
     }
 }

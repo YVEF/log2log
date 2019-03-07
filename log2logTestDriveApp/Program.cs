@@ -2,6 +2,8 @@
 using log2log.Configuration;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -14,9 +16,15 @@ namespace log2logTestDriveApp
         static void Main(string[] args)
         {
             ILoggerClient logger = LogManager.GetCurrentLogInstance();
-            for(int i=0; i<100; i++)
+
+
+            for (int i = 0; i < 100; i++)
                 logger.Info("abrakadabra");
             Thread.Sleep(TimeSpan.FromSeconds(3));
+
+
+
+
 
             Console.Read();
         }
