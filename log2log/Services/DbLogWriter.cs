@@ -13,17 +13,19 @@ namespace log2log.Services
     {
         private static object lockObj = new object();
         public Queue<ILogData> loggerQueue { get; set; }
-        private IDbConnection connection;
+        //private IDbConnection connection;
         private IContext context;
         
         public DbLogWriter(IContext context)
         {
             this.context = context;
             
-            using (var command = context.CreateCommand())
-            {                
-                command.CommandText = "CREATE TABLE [Loglog] ( [Id] INT PRIMARY KEY IDENTITY NOT NULL, " +
-                    "[Level] VARCHAR(20) NOT NULL, [Time] VARCHAR(30) NOT NULL, [Message] VARCHAR(60) NULL ) GO";
+            using (var currentContext = context)
+            {
+                var command = currentContext.CreateCommand();
+                command.CommandText = "IF exists (SELECT 1 FROM [Loglog]) BEGIN RETURN END ELSE BEGIN " +
+                    " CREATE TABLE [Loglog] ( [Id] INT PRIMARY KEY IDENTITY NOT NULL, " +
+                    "[Level] VARCHAR(20) NOT NULL, [Time] NVARCHAR(30) NOT NULL, [Message] NVARCHAR(60) NULL ) END;";
                 command.ExecuteNonQuery();
             }
         }
@@ -32,16 +34,19 @@ namespace log2log.Services
         {
             var builder = new StringBuilder();
             builder.Append("INSERT INTO [Loglog] ([Level], [Time], [Message]) VALUES ");
-            while (loggerQueue.Count > 0)
+            while (loggerQueue.Count > 1)
             {
                 var data = loggerQueue.Dequeue();
-                builder.AppendFormat(" ({0}, {1}, {2}), \n", data.Level, data.LogTime, data.Message);
+                builder.AppendFormat(" ({0}, {1}, {2}), ", data.Level, data.LogTime, data.Message);
             }
+            var lastdata = loggerQueue.Dequeue();
+            builder.AppendFormat(" ({0}, {1}, {2}); ", lastdata.Level, lastdata.LogTime, lastdata.Message);
+            
             string addCommand = builder.ToString();
 
-            using (var command = context.CreateCommand())
+            using (var currentContext = context)
             {
-
+                var command = currentContext.CreateCommand();
                 command.CommandText = addCommand;
                 command.ExecuteNonQuery();
             }

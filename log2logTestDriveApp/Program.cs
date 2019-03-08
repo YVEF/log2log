@@ -20,7 +20,7 @@ namespace log2logTestDriveApp
 
             for (int i = 0; i < 100; i++)
                 logger.Info("abrakadabra");
-            Thread.Sleep(TimeSpan.FromSeconds(3));
+            Thread.Sleep(TimeSpan.FromSeconds(4));
 
 
 
